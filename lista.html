@@ -10,9 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap"
       rel="stylesheet"
     />
-    <title>Películas|Series</title>
+    <link rel="stylesheet" href="script_buscar.js" />
+    <link rel="stylesheet" href="boton_para_ir_arriba.css" />
+    <title>Películas|Series|Anime</title>
     <style>
-
       .londrina-sketch-regular {
         font-family: "Londrina Sketch", sans-serif;
         font-style: normal;
@@ -32,23 +33,23 @@
         box-sizing: border-box;
       }
 
-       table {
+      table {
         width: 100%;
         border-collapse: collapse;
       }
 
-       th,
+      th,
       td {
         padding: 15px;
         text-align: left;
         border-bottom: 1px solid #ddd;
       }
 
-       th {
+      th {
         background-color: #f2f2f2;
       }
 
-       td a {
+      td a {
         text-decoration: none;
         color: white;
         background-color: #ff9800;
@@ -63,8 +64,6 @@
       td a:hover {
         background-color: #e68900;
       }
-
-     
 
       /* Responsive table*/
 
@@ -83,16 +82,20 @@
       }
 
       thead th.active {
-        background-color: #ff9900;
+        background-color: #13110f;
         color: #fff;
       }
-
+      p {
+        font-size: 15px;
+        text-align: justify;
+        font-style: italic;
+      }
       /* Responsive y ocultar */
 
       /* Estilos para dispositivos pequeños */
       @media (max-width: 600px) {
         th:nth-child(2), td:nth-child(2), /* Oculta la columna "Servidor" */
-        td:nth-child(3), th:nth-child(3){
+        td:nth-child(3), th:nth-child(3) {
           /* Oculta la columna "Idioma" */
           display: none;
         }
@@ -107,126 +110,507 @@
         cursor: pointer;
         text-decoration: underline;
       }
+
+      input {
+        width: 50%;
+        height: 100%;
+        background-color: rgb(255, 166, 0);
+        padding: 5px 0.8rem;
+        border-radius: 10px;
+        color: white;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+      input:hover {
+        width: 55%;
+        color: #13110f;
+        background-color: #fff8;
+        box-shadow: 0 0.1rem 0.4rem #0002;
+      }
+
+
+      input[type="search"] {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .no-results {
+        display: none;
+        margin-top: 10px;
+        color: red;
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        th:nth-child(2), td:nth-child(2) {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
-    <h2 class="londrina-sketch-regular">Películas|Series</h2>
+    <h2 class="londrina-sketch-regular">Películas|Series|Animes</h2>
+    <input type="search" id="searchInput" placeholder="Buscar......" />
+    <p class="no-results" id="noResults">No se encontraron resultados</p>
 
+    <br /><br />
     <!-- Lista desplegable de descargas -->
-    
-      <table style="font-style: italic;">
-        <thead>
-          <tr>
-            <th>Movie</th>
-            <th>Description</th>
-            <th>Server</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>La caída de Diddy-2024</strong></td>
-            <td><p style="font-size: 15px;">Una serie de demandas y acusaciones tienen al legendario magnate del rap P. Diddy contra las cuerdas. TMZ cuenta la inquietante historia de personas que estuvieron en el lugar.</p></td>
-            <td>streamwish</td>
-            <td>
-              <a href="https://cuty.io/i4sj" target="_blank" download
-                >DESCARGAR</a
+
+    <table>
+      <thead>
+        <tr>
+          <th>Movie</th>
+          <th>Description</th>
+          <th>Server</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>La caída de Diddy-2024</strong></td>
+          <td>
+            <p>
+              Una serie de demandas y acusaciones tienen al legendario magnate
+              del rap P. Diddy contra las cuerdas. TMZ cuenta la inquietante
+              historia de personas que estuvieron en el lugar.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/i4sj" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>La caída de Diddy La acusación-2024</strong></td>
+          <td>
+            <p>
+              Diddy enfrenta nuevos cargos impactantes y una acusación de alto
+              perfil. TMZ investiga el caso federal contra el famoso chico malo.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/edvHHZ9ZLn" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Birth-2004</strong></td>
+          <td>
+            <p>
+              Diez años después de la repentina muerte de su marido Sean, la
+              bella Anna (Nicole Kidman) acepta casarse con Joseph (Danny
+              Huston). Pero un día Anna conoce a un niño (Cameron Bright) muy
+              peculiar, que dice ser la reencarnación de Sean, y que le pide que
+              no se case con Joseph. El nombre del niño: Sean.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/QCCHWw6YLZ" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Culpa Mía-Mea culpa-2024</strong></td>
+          <td>
+            <p>
+              Después de aceptar el caso de un artista acusado de asesinato, una
+              abogada defensora se ve forzada a elegir entre su familia, el
+              deber y sus instintos más básicos.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/Z1Pu5Cz1kr" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Afraid-2024 [DIAbólica]</strong></td>
+          <td>
+            <p>
+              La familia de Curtis es seleccionada para probar un nuevo
+              dispositivo doméstico: un asistente digital llamado AIA. La AIA
+              aprende los comportamientos de la familia y comienza a anticipar
+              sus necesidades. Y que nada se interponga.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/6jrSABld7" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>T1 Monstruos-La historia de Lyle y Erik Menendez</strong>
+          </td>
+          <td>
+            <p>
+              En 1996, los hermanos Menéndez fueron acusados de asesinar a sus
+              padres para heredar la fortuna familiar, pero a día de hoy siguen
+              manteniendo que sus acciones fueron producto del miedo tras años
+              de abuso físico, emocional y sexual por parte de sus padres.<span
+                class="contenido"
+                >Mientras cumplen cadena perpetua sin posibilidad de libertad
+                condicional, el debate sobre su culpabilidad y las
+                circunstancias que los llevaron a cometer el crimen sigue vivo.
+                <br />
+                <br />La serie explora este caso tan impactante que llamó la
+                atención a nivel mundial y desencadenó la fascinación por los
+                crímenes reales. La serie invita al público a cuestionar quiénes
+                son los verdaderos monstruos en esta trágica historia, al
+                examinar tanto los hechos como las motivaciones detrás de uno de
+                los juicios más polémicos de la historia reciente.</span
               >
-            </td>
-          </tr>
-          <tr>
-            <td><strong>La caída de Diddy La acusación-2024</strong></td>
-            <td> <p style="font-size: 15px;">Diddy enfrenta nuevos cargos impactantes y una acusación de alto perfil. TMZ investiga el caso federal contra el famoso chico malo.</p></td>
-            <td>streamwish</td>
-            <td>
-              <a href="https://cuty.io/edvHHZ9ZLn" target="_blank" download
-                >DESCARGAR</a
+              <span class="ver-mas" onclick="toggleContenido(this)"
+                >[Ver más]</span
               >
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Birth-2004</strong></td>
-            <td><p style="font-size: 15px;">Diez años después de la repentina muerte de su marido Sean, la bella Anna (Nicole Kidman) acepta casarse con Joseph (Danny Huston). Pero un día Anna conoce a un niño (Cameron Bright) muy peculiar, que dice ser la reencarnación de Sean, y que le pide que no se case con Joseph. El nombre del niño: Sean.</p></td>
-            <td>streamwish</td>
-            <td><a href="https://cuty.io/QCCHWw6YLZ" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td><strong>Culpa Mía-Mea culpa-2024</strong></td>
-            <td><p style="font-size: 15px;">Después de aceptar el caso de un artista acusado de asesinato, una abogada defensora se ve forzada a elegir entre su familia, el deber y sus instintos más básicos.</p></td>
-            <td>streamwish</td>
-            <td><a href="https://cuty.io/Z1Pu5Cz1kr" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td><strong>Afraid-2024 [DIAbólica]</strong></td>
-            <td><p style="font-size: 15px;">La familia de Curtis es seleccionada para probar un nuevo dispositivo doméstico: un asistente digital llamado AIA. La AIA aprende los comportamientos de la familia y comienza a anticipar sus necesidades. Y que nada se interponga.</p></td>
-            <td>streamwish</td>
-            <td><a href="https://cuty.io/6jrSABld7" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td><strong>T1 Monstruos-La historia de Lyle y Erik Menendez</strong></td>
-            <td><p style="font-size: 15px;">En 1996, los hermanos Menéndez fueron acusados de asesinar a sus padres para heredar la fortuna familiar, pero a día de hoy siguen manteniendo que sus acciones fueron producto del miedo tras años de abuso físico, emocional y sexual por parte de sus padres.<span class="contenido"> Mientras cumplen cadena perpetua sin posibilidad de libertad condicional, el debate sobre su culpabilidad y las circunstancias que los llevaron a cometer el crimen sigue vivo.
-            <br> <br>La serie explora este caso tan impactante que llamó la atención a nivel mundial y desencadenó la fascinación por los crímenes reales. La serie invita al público a cuestionar quiénes son los verdaderos monstruos en esta trágica historia, al examinar tanto los hechos como las motivaciones detrás de uno de los juicios más polémicos de la historia reciente.</span> <span class="ver-mas" onclick="toggleContenido()">[Ver más]</span></p></td>
-            <td>streamwish</td>
-            <td><a href="https://cuty.io/ekyrD " target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>.</td>
-            <td>streamwish</td>
-            <td><a href="#" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-        </tbody>
-      </table>
-    
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/ekyrD " target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Saga: American Pie</strong></td>
+          <td>
+            <p>
+              Es una serie de nueve películas estadounidenses de comedia sexual
+              estrenadas entre 1999 y 2020.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/Myp9ZSuG" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Saga: Robert Langdon</strong></td>
+          <td>
+            <p>
+              <strong>El código Da Vinci-2006</strong> Cuando el cuerpo del
+              profesor Jacques Saunière es encontrado en el Museo del Louvre, en
+              la posicion del "Hombre de Vitruvio" de Leonardo da Vinci, las
+              primeras sospechas caen sobre Robert Langdon (Tom Hanks, Salvar al
+              soldado Ryan), con quien el profesor se había citado. Robert
+              marcha con la policía hasta la escena del crimen y descubre que el
+              veterano profesor dejó grabado un mensaje con su propia sangre
+              antes de morir. Sophie Neveu (Audrey Tautou, Amélie), la nieta de
+              Sauniére e inspectora especialista en criptografía, le ayudará a
+              resolver el mensaje cifrado que dejó su abuelo.
 
-    
+              <span class="contenido"
+                >Empieza entonces una particular investigación que les lleva a
+                recorrer las salas del museo en busca de las pistas escondidas
+                en "La Mona Lisa" o "La Virgen de las Rocas". Cuando Langdon
+                descubre que el capitán Bezu Fache (Jean Reno, Léon) le tiene
+                localizado con un rastreador, deciden despistarlo tirándolo a un
+                camión de la basura, que lleva a varias patrullas a seguir el
+                señuelo mientras Robert y Sophie se esconden en un parque. Allí
+                Robert le explicará toda la historia que hay detrás de los
+                símbolos dejados en la historia de su abuelo, sobre las Cruzadas
+                y el Priorato de Sión, al que pertenecía como el último guardián
+                del misterio más extendido desde los tiempos de Jesucristo: el
+                Santo Grial. Las pistas les llevan hasta la cuenta de un banco
+                suizo en París, donde descubren un críptex que guardaría la
+                localizacion exacta del Grial. Langdon contacta con un viejo
+                amigo, sir Leigh Teabing (Ian McKellen, El señor de los
+                anillos), un erudito en la materia con el que marchan a Londres
+                para descubrir la pista que se oculta en la Abadía de
+                Westminster. Robert descubre el último secreto del críptex, pero
+                decide romper la cápsula después de que Teabing les traicionara.
+                Cuando su amigo es detenido, Robert le confiesa a Sophie el
+                secreto y juntos marchan a Edimburgo, donde se revelará el
+                misterio. <br />
+                <br />
+                <strong>Ángeles y demonios-2009</strong> El famoso profesor de
+                simbología Robert Langdon (Tom Hanks) recibe un mensaje del
+                Vaticano solicitando su ayuda para una investigación. En la
+                Ciudad del Vaticano se está celebrando el Cónclave que elegirá
+                al nuevo Papa. En este contexto de incertidumbre el hombre en el
+                que reside todo el poder de la Iglesia es el Camarlengo Patrick
+                McKenna (Ewan McGregor). El Camarlengo le comunica a Langdon que
+                los Illuminati -grupo sobre el que se encuentra trabajando el
+                profesor- están secuestrando y matando a los "preferiti" -los
+                cardenales predilectos para ocupar el puesto de Papa-. Además,
+                saben que los Illuminati planean un atentado sobre el Vaticano
+                para el que utilizarán antimateria. Robert Langdon tendrá
+                encontrar a los cardenales y detener a los Illuminati siguiendo
+                los símbolos más antiguos de la ciudad de Roma, para ello
+                contará con la ayuda de Vittoria Vetra (Ayelet Zurer), una
+                científica italiana enviada directamente desde Suiza que tendrá
+                que respaldar al profesor en una carrera contrarreloj por salvar
+                el mundo. Adaptación de la novela homónima de Dan Brown que
+                cosechó un gran éxito editorial del año 2000 dirigida por Ron
+                Howard (El código Da Vinci, Rush). <br /><br />
+                <strong>Inferno-2016</strong> Cuando Robert Langdon se despierta
+                en un hospital italiano con amnesia, se asocia con la Dra.
+                Sienna Brooks, y juntos deben atravesar Europa a contrarreloj
+                para frustrar un mortal complot mundial. </span
+              ><span class="ver-mas" onclick="toggleContenido(this)"
+                >[Ver más]</span
+              >
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/sagarl" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>El Hoyo 2</strong></td>
+          <td>
+            <p>
+              En un mundo distópico donde las personas están confinadas en una
+              torre vertical conocida como "El Hoyo", aparece un misterioso
+              líder, imponiendo un brutal sistema de control sobre los recursos
+              alimentarios. Cada nivel de la torre recibe las sobras del nivel
+              superior, lo que crea un ambiente de desesperación y violencia
+              entre todos los inquilinos. En este caos, una nueva residente
+              decide enfrentarse al sistema, uniéndose a la lucha contra el
+              horrible y cruel método de supervivencia instaurado por el líder.
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a href="https://cuty.io/yovw5cotHx" target="_blank" download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Futurama Temporada 12</strong></td>
+          <td>
+            <p>
+              «Futurama» es una serie animada creada por Matt Groening, el mismo
+              creador de «Los Simpson». La serie sigue la historia de Philip J.
+              Fry, un repartidor de pizzas que, en un giro de eventos
+              desafortunado, se congela criogénicamente por accidente en 1999.
+              <span class="contenido"
+                >Cuando despierta, descubre que han pasado 1000 años y se
+                encuentra en un futuro del año 2999. Este nuevo mundo está lleno
+                de avances tecnológicos y criaturas extrañas, pero en muchos
+                aspectos, la sociedad no ha cambiado tanto como podría
+                esperarse. En este futuro, Fry se une a un equipo de la empresa
+                de entregas interplanetarias Planet Express. El equipo está
+                compuesto por personajes únicos y excéntricos, como la cínica y
+                sarcástica Leela, la extravagante y robotica Bender, y el
+                envejecido profesor Farnsworth. A lo largo de la serie, Fry
+                intenta adaptarse a su nuevo entorno mientras enfrenta desafíos
+                y situaciones cómicas. La serie se destaca por su humor
+                inteligente y su capacidad para satirizar aspectos de la cultura
+                y la tecnología contemporáneas, al mismo tiempo que explora
+                temas profundos como la identidad y el propósito en un contexto
+                futurista. Con una mezcla de ciencia ficción, comedia y crítica
+                social, «Futurama» ha ganado una base de seguidores leales y ha
+                sido elogiada por su creatividad y agudeza.</span
+              >
+              <span class="ver-mas" onclick="toggleContenido(this)"
+                >[Ver más]</span
+              >
+            </p>
+          </td>
+          <td>streamwish</td>
+          <td>
+            <a
+              href="https://aurelior94.github.io/futurama_12t.github.io/"
+              target="_blank"
+              download
+              >DESCARGAR</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Marianne [Serie]</strong></td>
+          <td><p>Es una serie de televisión francesa creada y dirigida por Samuel Bodin. Escrita por Bodin y Quoc Dang Tran, la serie fue protagonizada por Victoire Du Bois, Lucie Boujenah y Tiphaine Daviot. La trama gira en torno a la joven novelista Emma, quien debe enfrentar en la realidad a los personajes supuestamente ficticios de sus novelas de terror. La serie fue estrenada el 13 de septiembre de 2019 en Netflix.la serie fue cancelada después una temporada.</p></td>
+          <td>Drive.Filen</td>
+          <td><a href="https://cuty.io/tH0Eq8a" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td><strong>Suzume-2022</strong></td>
+          <td><p>Es una película de animación japonesa escrita y dirigida por Makoto Shinkai y producida por CoMix Wave Films. Cuenta con diseños de personajes de Masayoshi Tanaka, dirección de animación de Kenichi Tsuchiya y dirección de arte de Takumi Tanji.</p></td>
+          <td>Drive.Filen</td>
+          <td><a href="https://cuty.io/UnQLCjQ41H" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td><strong>Saga: Guinea Pig</strong></td>
+          <td><p>Son una serie de películas japonesas de horror gore de los años 80 con efectos especiales extremadamente detallados y violencia gráficamente explícita. </p></td>
+          <td>streamwish</td>
+          <td><a href="https://aurelior94.github.io/saga_guinea_pig.github.io/" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>.</td>
+          <td>streamwish</td>
+          <td><a href="#" target="_blank" download>DESCARGAR</a></td>
+        </tr>
+      </tbody>
+    </table>
 
+    <!-- Botón para ir arriba -->
+    <button class="btn-ir-arriba" id="btnIrArriba">⬆️</button>
+    <script src="script_boton_para_ir_arriba.js"></script>
+    <!-- Fin Botón para ir arriba -->
+    <script>
+      function toggleContenido(elemento) {
+        const contenido = elemento.previousElementSibling;
 
-
-
-      <script>
-        function toggleContenido() {
-          const contenido = document.querySelector(".contenido");
-          const verMas = document.querySelector(".ver-mas");
-  
-          if (contenido.style.display === "none") {
-            contenido.style.display = "inline";
-            verMas.textContent = "[Ver menos]";
-          } else {
-            contenido.style.display = "none";
-            verMas.textContent = "[Ver más]";
-          }
+        if (contenido.style.display === "none") {
+          contenido.style.display = "inline";
+          elemento.textContent = "[Ver menos]";
+        } else {
+          contenido.style.display = "none";
+          elemento.textContent = "[Ver más]";
         }
-      </script>
+      }
+
+
+       // Función para normalizar el texto (eliminar acentos y espacios innecesarios)
+      const normalizeText = (text) =>
+        text
+          .toLowerCase()
+          .normalize("NFD") // Descompone los caracteres con tilde
+          .replace(/[\u0300-\u036f]/g, "") // Elimina los caracteres de tilde
+          .trim(); // Elimina espacios adicionales
+
+      const searchInput = document.getElementById("searchInput");
+      const tableRows = document.querySelectorAll("tbody tr");
+      const noResultsMessage = document.getElementById("noResults");
+
+      searchInput.addEventListener("input", () => {
+        const filter = normalizeText(searchInput.value);
+        let matches = 0; // Contador de coincidencias
+
+        tableRows.forEach((row) => {
+          const movieTitle = normalizeText(row.querySelector("td:first-child").textContent);
+          if (movieTitle.includes(filter)) {
+            row.style.display = "";
+            matches++;
+          } else {
+            row.style.display = "none";
+          }
+        });
+
+        // Mostrar u ocultar el mensaje de "No se encontraron resultados"
+        noResultsMessage.style.display = matches === 0 ? "block" : "none";
+      });
+    </script>
   </body>
 </html>
