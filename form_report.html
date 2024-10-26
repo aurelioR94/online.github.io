@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Form Report]</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px;
+}
+
+.form-container {
+    background-color: rgba(237, 240, 213, 0.062);
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    
+}
+
+h4 {
+    text-align: center;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color:white;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    justify-content: center;
+    
+    
+}
+textarea{
+    height: 20vh;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    
+}
+
+.button {
+    width: 50%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+  .form-control {
+    width: 522px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  .form-control:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+  }
+
+  .form-control option {
+    padding: 10px; 
+  }
+
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+
+<body>
+<span class="form-container">
+    <h4></h4>
+    
+        <form action="https://formspree.io/f/mvgozgev" method="POST">
+            <label for="nombre">Nombre de la Película Serie o Anime que presenta el problema:</label>
+            <input class="input" type="text" id="nombre" name="nombre" placeholder="">
+            <label for="link">Link:</label>
+            <input class="input" type="text" id="link" name="link" placeholder="Ingresa el link. [Opcional]">
+            <label for="motivo">Motivo del reporte:</label>
+        <select class="form-control" id="motivo" name="motivo">
+            <option name="No reproduce" value="No reproduce">No reproduce</option>
+            <option name="Problemas de audio" value="Problemas de audio">Problemas de audio</option>
+            <option name="Problemas con subtitulos" value="Problemas con subtitulos">Problemas con subtitulos</option>
+            <option name="Episodio incorrecto" value="Episodio incorrecto">Episodio incorrecto</option>
+            <option name="Link Caído" value="Link Caído">Link Caído</option>
+            <option name="Sugerencias" value="Sugerencias">Sugerencias</option>
+        </select>
+        <br><br>
+        <label for="message">Detalla el problema:</label>
+
+        <textarea  name="comentario" id="comentario" placeholder="Detalla el problema o Sugerencia."></textarea>
+        <!--<input class="textarea" type="text" name="message" id="message" placeholder="" required>-->
+        <!--<textarea id="message" name="message" placeholder="Detalla el problema" required></textarea>-->
+
+        
+        <span class="centered"><input  class="button" type="submit" value="ENVIAR"></span>
+
+    </span> 
+</div>
+</body>
+
+</html>
