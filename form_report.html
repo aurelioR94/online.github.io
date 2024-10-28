@@ -97,13 +97,24 @@ textarea{
     justify-content: center;
     text-align: center;
 }
+
 @media (max-width: 600px) {
-       .form-container{
-        width:150px;
-       }
-      .form-control{
-        width:150px;
-      } 
+    .form-container{
+        width: 200px;
+        padding: 15px 50px;
+        background-color:white;
+    }
+    .form-control{
+        width: 150px;
+    }
+    label{
+        color: black;
+    }
+    body{
+        background: white;
+        
+        
+    }
 }
 
     </style>
@@ -118,6 +129,8 @@ textarea{
             <input class="input" type="text" id="nombre" name="nombre" placeholder="">
             <label for="link">Link:</label>
             <input class="input" type="text" id="link" name="link" placeholder="Ingresa el link. [Opcional]">
+
+            
             <label for="motivo">Motivo del reporte:</label>
         <select class="form-control" id="motivo" name="motivo">
             <option name="No reproduce" value="No reproduce">No reproduce</option>
@@ -127,10 +140,11 @@ textarea{
             <option name="Link Caído" value="Link Caído">Link Caído</option>
             <option name="Sugerencias" value="Sugerencias">Sugerencias</option>
         </select>
-        <br><br>
+      
         <label for="message">Detalla el problema:</label>
 
         <textarea  name="comentario" id="comentario" placeholder="Detalla el problema o Sugerencia."></textarea>
+
         <!--<input class="textarea" type="text" name="message" id="message" placeholder="" required>-->
         <!--<textarea id="message" name="message" placeholder="Detalla el problema" required></textarea>-->
 
