@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator for Word Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .number {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #555;
+        }
+        .download {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Números Random</h1>
+    <p>Haga clic en el botón de abajo para generar un número aleatorio y exportarlo a un documento de Word.</p>
+    <button onclick="generateNumber()">Generar Número</button>
+    <div class="number" id="randomNumber"></div>
+    <button class="download" id="downloadButton" onclick="downloadWord()">Download Word Document</button>
+
+    <script>
+        function generateNumber() {
+            const randomNumber = Math.floor(Math.random() * 1000000) + 1; // Generate a random number
+            document.getElementById('randomNumber').innerText = `Generated Number: ${randomNumber}`;
+
+            // Show the download button
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.style.display = 'inline-block';
+        }
+
+        function downloadWord() {
+            const randomNumber = document.getElementById('randomNumber').innerText;
+            const blob = new Blob([randomNumber], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'RandomNumber.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
