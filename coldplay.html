@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        /* Ocultar elementos comunes de anuncios */
+        .ad,
+        .advertisement,
+        [class*='ad-'],
+        iframe[src*='ads'] {
+            display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            visibility: hidden !important;
+        }
+    </style>
 </head>
 
 <body style="width:100%;height:100%;padding:0;margin:0;">
@@ -17,7 +29,7 @@
         onclick="document.getElementById('over').style.display = 'none';" SRC="https://swishsrv.com/e/dvnex7gkhael"
         FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360 allowfullscreen></IFRAME>
 
-        <!--
+    <!--
         <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +93,65 @@
 
 </html>
         -->
+
+
+    <script>
+        // Bloquear solicitudes de red a redes publicitarias
+        if (typeof window.addEventListener === 'function') {
+            window.addEventListener('load', function () {
+                var patterns = [
+                    'doubleclick.net',
+                    'googleadservices.com',
+                    'googlesyndication.com'
+                ];
+                patterns.forEach(function (pattern) {
+                    var elements = document.querySelectorAll('[src*="' + pattern + '"], [href*="' + pattern + '"]');
+                    elements.forEach(function (el) { el.remove(); });
+                });
+            });
+        }
+
+        // Bloquear ventanas emergentes (pop-ups)
+        (function () {
+            // Sobrescribir window.open
+            var originalWindowOpen = window.open;
+            window.open = function (url, name, specs, replace) {
+                console.log("Bloqueado pop-up:", url);
+                return null; // Evita que se abra
+            };
+
+            // Bloquear alertas, confirms y prompts no deseados
+            window.alert = function (message) {
+                console.log("Alert bloqueado:", message);
+            };
+            window.confirm = function (message) {
+                console.log("Confirm bloqueado:", message);
+                return false; // Siempre devuelve false
+            };
+            window.prompt = function (message, defaultText) {
+                console.log("Prompt bloqueado:", message);
+                return null;
+            };
+
+            // Bloquear eventos que puedan lanzar pop-ups
+            window.addEventListener('click', function (e) {
+                if (e.target.href && e.target.href.toLowerCase().includes('popup')) {
+                    e.preventDefault();
+                    console.log("Bloqueado pop-up por click en enlace");
+                }
+            }, true);
+
+            // Evitar que iframes abran pop-ups
+            document.addEventListener('DOMContentLoaded', function () {
+                var iframes = document.getElementsByTagName('iframe');
+                for (var i = 0; i < iframes.length; i++) {
+                    try {
+                        iframes[i].contentWindow.open = function () { return null; };
+                    } catch (e) { /* Silenciar errores de cross-origin */ }
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
-
