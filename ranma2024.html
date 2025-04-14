@@ -3,293 +3,532 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <title>Anime: ranma 1/2 2024</title>
+  <title>Ranma 1/2 (2024) - Ver y Descargar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-
-
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-      padding: 20px;
-      box-sizing: border-box;
+    :root {
+      --primary: #f43f5e;
+      --secondary: #3b82f6;
+      --accent: #f97316;
+      --background: #f8fafc;
+      --card: #ffffff;
+      --text: #334155;
     }
-
-    iframe {
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 20px;
-      display: none; /* Ocultamos los iframes inicialmente */
-    }
-
-    .buttons {
-  margin-top: 10px;
-  display: flex;
-  gap: 5px; /* Espacio reducido entre botones */
-  flex-wrap: wrap; /* Acomoda los botones en varias filas si es necesario */
-  justify-content: center;
-}
-
-.buttons button {
-  flex: 1 1 calc(20% - 10px); /* Cada botón ocupa el 20% del contenedor */
-  max-width: 100px; /* Tamaño máximo más pequeño */
-  padding: 8px; /* Reduce el padding interno */
-  font-size: 14px; /* Tamaño de fuente más pequeño */
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.buttons button:hover {
-  background-color: #308533;
-}
-
-@media (max-width: 600px) {
-  .buttons button {
-    flex: 1 1 30%; /* En pantallas pequeñas, cada botón ocupa más espacio */
-    max-width: none;
-  }
-}
-
-    .download-list {
-      display: none;
-      margin-top: 10px;
-      width: 100%;
-      max-width: 800px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .download-list table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .download-list th, .download-list td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .download-list th {
-      background-color: #f2f2f2;
-    }
-
-    .download-list td a {
-      text-decoration: none;
-      color: white;
-      background-color: #ff9800;
-      padding: 10px 10px;
-      border-radius: 5px;
-      font-weight: bold;
-      display: inline-block;
-      max-width: 100px;
-      font-size: 15px;
-    }
-
-    .download-list td a:hover {
-      background-color: #e68900;
-    }
-
-    button.download-btn {
-      margin-top: 20px;
-      background-color: #4caf50;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 10px;
-    }
-
-/* Responsive table*/
     
-@media (max-width: 1000px) {
-    td th thead {
-        min-width: 12.1rem;
+    * {
+      transition: all 0.3s ease;
     }
-}
-
-thead th:hover {
-    border: 1.4px solid #ff9900;
-}
-
-thead th:hover {
-    color:  #ff9900;
-}
-
-thead th.active {
-    background-color:  #ff9900;
-    color: #fff;
-}
-
-/* Responsive y ocultar */
-
-
-  /* Estilos para dispositivos pequeños */
-  @media (max-width: 600px) {
-    th:nth-child(1), td:nth-child(1), /* Oculta la columna "Servidor" */
-    th:nth-child(2), td:nth-child(2) { /* Oculta la columna "Idioma" */
-      display: none;
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
     }
-  }
-
+    
+    .anime-title {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .episode-button {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--card);
+      border: 2px solid #e2e8f0;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .episode-button:hover, .episode-button.active {
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .episode-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+    
+    .episode-button:hover::before, .episode-button.active::before {
+      left: 0;
+    }
+    
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Clase personalizada para el tamaño del video */
+    .enlarged-video {
+      aspect-ratio: 16/10; /* Proporción más alta que la estándar */
+      height: calc(100vh - 150px); /* Altura dinámica basada en el viewport */
+      max-height: 750px; /* Altura máxima */
+      min-height: 500px; /* Altura mínima */
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      .enlarged-video {
+        aspect-ratio: 16/9;
+        height: calc(100vh - 100px);
+        min-height: 300px;
+      }
+    }
+    
+    .banner {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.jsdelivr.net/gh/placeholder-image/ranma.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .download-button {
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      transition: transform 0.3s ease;
+    }
+    
+    .download-button:hover {
+      transform: translateY(-3px);
+    }
+    
+    .table-row:hover {
+      background-color: #f1f5f9;
+    }
+    
+    .scroll-container {
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) #e2e8f0;
+    }
+    
+    .scroll-container::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    .scroll-container::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      border-radius: 10px;
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    
+    @media (max-width: 640px) {
+      .episode-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .episode-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .7;
+      }
+    }
+    
+    .fadeIn {
+      animation: fadeIn 0.5s ease-in forwards;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
-<body>
+<body class="min-h-screen">
+  <!-- Header -->
+  <header class="banner text-white py-12 px-4 mb-8">
+    <div class="container mx-auto max-w-7xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Ranma 1/2</h1>
+      <p class="text-xl opacity-90 mb-6">Remasterización 2024</p>
+      
+      <div class="flex flex-wrap gap-4 text-sm opacity-80">
+        <div class="flex items-center">
+          <i class="fas fa-star mr-2 text-yellow-400"></i>
+          <span>Género: Comedia, Artes Marciales, Romance</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-film mr-2"></i>
+          <span>12 Episodios</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-closed-captioning mr-2"></i>
+          <span>Subtítulos: Español</span>
+        </div>
+      </div>
+      
+      <div class="mt-6 max-w-2xl">
+        <p class="text-gray-200">La famosa serie de Rumiko Takahashi regresa en 2024 con una remasterización de alta calidad. Sigue las aventuras de Ranma Saotome, quien tras caer en una fuente encantada, se transforma en chica al contacto con el agua fría.</p>
+      </div>
+    </div>
+  </header>
 
-  <h2>Anime: Ranma 1/2 2024</h2>
-  <!-- Iframes para cada capítulo -->
-  <IFRAME id="capitulo1" src="https://streamtape.com/e/jP8GdlGevVfzVgZ/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></IFRAME>
-  <IFRAME id="capitulo2" src="https://streamtape.com/e/23XVa49YYVIZv1D/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></IFRAME>
-  <iframe id="capitulo3" src="https://streamtape.com/e/K4z4OakLXgc0RRr/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo4" src="https://streamtape.com/e/P3yMPkeyZas01OW/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo5" src="https://streamtape.com/e/3wXy806QaLCdzVB/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo6" src="https://streamtape.com/e/Propm99Y2rs02Qj/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo7" src="https://watchadsontape.com/e/p8KYXYJVAxhrPLV/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo8" SRC="https://uqload.net/embed-pvoyzdnxhg2u.html" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360 allowfullscreen></iframe>
-  <iframe id="capitulo9" SRC="https://uqload.net/embed-rmisw7e85fe8.html" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360 allowfullscreen></iframe>
-  <iframe id="capitulo10" src="https://streamtape.com/e/M0QQYQdOKMSmj3O/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo11" src="https://streamtape.com/e/p19dQjV4LPHWm3/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-  <iframe id="capitulo12" src="https://streamtape.com/e/dqz20KrDWRt9ao/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-
-
-  <!-- Botones para seleccionar capítulos -->
-  <style>
-    p{
-      font-weight: 200;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      background-color:#E2EAF4;
-      border-style:outset;
-    }
-   </style>
-  <div class="buttons">
-    <p onclick="mostrarCapitulo('capitulo1')">E1</p>
-    <p onclick="mostrarCapitulo('capitulo2')">E2</p>
-    <p onclick="mostrarCapitulo('capitulo3')">E3</p>
-    <p onclick="mostrarCapitulo('capitulo4')">E4</p>
-    <p onclick="mostrarCapitulo('capitulo5')">E5</p>
-    <p onclick="mostrarCapitulo('capitulo6')">E6</p>
-    <p onclick="mostrarCapitulo('capitulo7')">E7</p>
-    <p onclick="mostrarCapitulo('capitulo8')">E8</p>
-    <p onclick="mostrarCapitulo('capitulo9')">E9</p>
-    <p onclick="mostrarCapitulo('capitulo10')">E10</p>
-    <p onclick="mostrarCapitulo('capitulo11')">E11</p>
-    <p onclick="mostrarCapitulo('capitulo12')">E12</p>
-   
-
-
-  </div>
-
-
-  <!-- Botón de descarga -->
-  <button onclick="toggleDownloadList()" style="margin-top: 20px; background-color: #4caf50; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">
-    Descargar Episodio
-  </button>
-
-  <!-- Lista desplegable de descargas -->
-  <div class="download-list" id="downloadList">
-    <table>
-      <thead>
-        <tr>
-          <th>Servidor</th>
-          <th>Idioma</th>
-          <th>Episodios</th>
-          <th>Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mediafire</td>
-          <td>Subtitulos Español</td>
-          <td>1</td>
-          <td><a href="https://www.mediafire.com/file/khe9tuds9i6gkgt/" target="_blank" download>DESCARGAR</a></td>
-        </tr>
-        <tr>
-          <td>Mega</td>
-          <td>Subtitulos Español</td>
-          <td>2</td>
-          <td><a href="https://mega.nz/file/nf5wkBRK#l3CQEjrXZdMCsoLgDTjk7a0-qM54OY8tb6Sduln0kpo" target="_blank" download>DESCARGAR</a></td>
-        </tr>
-        <tr>
-          <td>Mega</td>
-          <td>Subtitulos Español</td>
-          <td>3</td>
-          <td><a href="https://mega.nz/file/FH8izCpD#uid6hJmDoo51tvNt71T2UHfksDWKimoct10Zu4BzMEw" target="_blank" download>DESCARGAR</a></td>
-        </tr>
-        <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>4</td>
-            <td><a href="https://mega.nz/file/4btGkLyL#XW2itwTDrYXLfvpUGnZRnd376e0lS1Bu8paEbuIsz3E" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>5</td>
-            <td><a href="https://mega.nz/file/Ve0HAZKS#Bh2Z_vW0txTiKAT0P6beRoha7vKzVBJVrqb6xCtX5fs" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>6</td>
-            <td><a href="https://mega.nz/file/cC9gHYBC#Y1rwnH2DoMhB6KBU5JBcePnIOVTBZ7d4jV5xEcRCyCw" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>7</td>
-            <td><a href="https://mega.nz/file/MOVEFaKJ#3uIYH5T8m9N1fpx9uC5lKQ97WbemKoUDYHfxzX1Chco" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>8</td>
-            <td><a href="https://mega.nz/file/ofsGjAjZ#iTfdi36_hyzTRawstfHWoc2dumI5lis-8JH-5bCjvlY" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>9</td>
-            <td><a href="https://mega.nz/file/sDV0FJ4a#TUZCz4BiqXWxs1tkIveSLyX1jaqcX4w4T8Hgaxtijo0" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>10</td>
-            <td><a href="https://mega.nz/file/VHsEEAJY#Ik1adxC4fgflKdh1n26KlC4dwK1NczOuTvO_UpHxs38" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>streamtape</td>
-            <td>Subtitulos Español</td>
-            <td>11</td>
-            <td><a href="https://streamtape.com/v/p19dQjV4LPHWm3/" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-          <tr>
-            <td>Mega</td>
-            <td>Subtitulos Español</td>
-            <td>12 ¡Episodio Final!</td>
-            <td><a href="https://mega.nz/file/NCk1iCrC#DjJl6cUcHzCvbuh-7ksARtC0mXr_F6DdqS6RUtR2Yk0" target="_blank" download>DESCARGAR</a></td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-
+  <main class="container mx-auto max-w-7xl px-4 pb-20">
+    <!-- Sección de visualización de episodios -->
+    <section>
+      <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-10">
+        <!-- Información lateral (reducida para dar más espacio al reproductor) -->
+        <div class="w-full md:w-1/5 lg:w-1/6 bg-white p-4 lg:p-6 rounded-xl shadow-lg mb-6 md:mb-0 order-2 md:order-1 md:sticky md:top-4" style="height: fit-content;">
+          <h3 class="text-lg lg:text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-info-circle mr-2 text-blue-500"></i>
+            Sobre este anime
+          </h3>
+          
+          <div class="space-y-3 text-xs lg:text-sm">
+            <div>
+              <h4 class="font-semibold text-gray-700">Director</h4>
+              <p>Tomomi Mochizuki</p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-700">Estudio</h4>
+              <p>Studio DEEN</p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-700">Año de emisión</h4>
+              <p>2024 (Remasterización)</p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-700">Calidad</h4>
+              <p>HD 1080p</p>
+            </div>
+            
+            <div class="pt-2">
+              <h4 class="font-semibold text-gray-700 mb-1">Personajes principales</h4>
+              <ul class="list-disc list-inside space-y-1 pl-1">
+                <li>Ranma Saotome</li>
+                <li>Akane Tendo</li>
+                <li>Genma Saotome</li>
+                <li>Soun Tendo</li>
+                <li>Shampoo</li>
+                <li>Ryoga Hibiki</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reproductor principal (ampliado) -->
+        <div class="w-full md:w-4/5 lg:w-5/6 order-1 md:order-2">
+          <div class="video-container mb-6 bg-black">
+            <!-- Iframes para cada capítulo con clase enlarged-video -->
+            <IFRAME id="capitulo1" src="https://streamtape.com/e/jP8GdlGevVfzVgZ/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></IFRAME>
+            <IFRAME id="capitulo2" src="https://streamtape.com/e/23XVa49YYVIZv1D/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></IFRAME>
+            <iframe id="capitulo3" src="https://streamtape.com/e/K4z4OakLXgc0RRr/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo4" src="https://streamtape.com/e/P3yMPkeyZas01OW/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo5" src="https://streamtape.com/e/3wXy806QaLCdzVB/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo6" src="https://streamtape.com/e/Propm99Y2rs02Qj/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo7" src="https://watchadsontape.com/e/p8KYXYJVAxhrPLV/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo8" SRC="https://uqload.net/embed-pvoyzdnxhg2u.html" class="enlarged-video" allowfullscreen></iframe>
+            <iframe id="capitulo9" SRC="https://uqload.net/embed-rmisw7e85fe8.html" class="enlarged-video" allowfullscreen></iframe>
+            <iframe id="capitulo10" src="https://streamtape.com/e/M0QQYQdOKMSmj3O/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo11" src="https://streamtape.com/e/p19dQjV4LPHWm3/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+            <iframe id="capitulo12" src="https://streamtape.com/e/dqz20KrDWRt9ao/" class="enlarged-video" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+          </div>
+          
+          <!-- Control de episodios -->
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fas fa-play-circle mr-2 text-red-500"></i>
+              Episodios
+            </h3>
+            
+            <div class="episode-grid grid grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-2 scroll-container overflow-x-auto pb-2">
+              <button onclick="mostrarCapitulo('capitulo1')" class="episode-button active py-3 rounded-lg text-center" data-id="1">
+                EP 1
+              </button>
+              <button onclick="mostrarCapitulo('capitulo2')" class="episode-button py-3 rounded-lg text-center" data-id="2">
+                EP 2
+              </button>
+              <button onclick="mostrarCapitulo('capitulo3')" class="episode-button py-3 rounded-lg text-center" data-id="3">
+                EP 3
+              </button>
+              <button onclick="mostrarCapitulo('capitulo4')" class="episode-button py-3 rounded-lg text-center" data-id="4">
+                EP 4
+              </button>
+              <button onclick="mostrarCapitulo('capitulo5')" class="episode-button py-3 rounded-lg text-center" data-id="5">
+                EP 5
+              </button>
+              <button onclick="mostrarCapitulo('capitulo6')" class="episode-button py-3 rounded-lg text-center" data-id="6">
+                EP 6
+              </button>
+              <button onclick="mostrarCapitulo('capitulo7')" class="episode-button py-3 rounded-lg text-center" data-id="7">
+                EP 7
+              </button>
+              <button onclick="mostrarCapitulo('capitulo8')" class="episode-button py-3 rounded-lg text-center" data-id="8">
+                EP 8
+              </button>
+              <button onclick="mostrarCapitulo('capitulo9')" class="episode-button py-3 rounded-lg text-center" data-id="9">
+                EP 9
+              </button>
+              <button onclick="mostrarCapitulo('capitulo10')" class="episode-button py-3 rounded-lg text-center" data-id="10">
+                EP 10
+              </button>
+              <button onclick="mostrarCapitulo('capitulo11')" class="episode-button py-3 rounded-lg text-center" data-id="11">
+                EP 11
+              </button>
+              <button onclick="mostrarCapitulo('capitulo12')" class="episode-button py-3 rounded-lg text-center" data-id="12">
+                <span class="relative">
+                  EP 12
+                  <span class="absolute -top-2 -right-10 bg-red-500 text-white text-xs px-1 rounded">Final</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Episodio actual -->
+          <div id="episode-info" class="bg-white p-6 rounded-xl shadow-lg mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold flex items-center">
+                <i class="fas fa-film mr-2 text-purple-600"></i>
+                <span id="current-episode-title">Episodio 1</span>
+              </h3>
+              
+              <div class="flex items-center">
+                <button id="prev-episode" class="text-gray-500 hover:text-primary p-2 disabled:opacity-50" disabled>
+                  <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="next-episode" class="text-gray-500 hover:text-primary p-2" onclick="cambiarEpisodio(2)">
+                  <i class="fas fa-step-forward"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-4">
+              <p class="text-gray-600">Disfruta de Ranma 1/2 en alta calidad. Para una mejor experiencia, puedes usar el modo pantalla completa del reproductor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección de descargas -->
+    <section class="mt-12">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold anime-title">Descargar Episodios</h2>
+        
+        <button onclick="toggleDownloadList()" class="download-button flex items-center gap-2 py-3 px-6 text-white font-medium rounded-full shadow-lg">
+          <i class="fas fa-download"></i>
+          <span>Ver Enlaces</span>
+        </button>
+      </div>
+      
+      <div id="downloadList" class="bg-white rounded-xl shadow-lg overflow-hidden hidden fadeIn">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-4 px-6 text-left font-semibold text-gray-700">Servidor</th>
+                <th class="py-4 px-6 text-left font-semibold text-gray-700 hidden md:table-cell">Idioma</th>
+                <th class="py-4 px-6 text-left font-semibold text-gray-700">Episodio</th>
+                <th class="py-4 px-6 text-center font-semibold text-gray-700">Enlace</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mediafire</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">1</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://www.mediafire.com/file/khe9tuds9i6gkgt/" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">2</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/nf5wkBRK#l3CQEjrXZdMCsoLgDTjk7a0-qM54OY8tb6Sduln0kpo" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">3</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/FH8izCpD#uid6hJmDoo51tvNt71T2UHfksDWKimoct10Zu4BzMEw" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">4</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/4btGkLyL#XW2itwTDrYXLfvpUGnZRnd376e0lS1Bu8paEbuIsz3E" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">5</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/Ve0HAZKS#Bh2Z_vW0txTiKAT0P6beRoha7vKzVBJVrqb6xCtX5fs" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">6</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/cC9gHYBC#Y1rwnH2DoMhB6KBU5JBcePnIOVTBZ7d4jV5xEcRCyCw" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">7</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/MOVEFaKJ#3uIYH5T8m9N1fpx9uC5lKQ97WbemKoUDYHfxzX1Chco" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">8</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/ofsGjAjZ#iTfdi36_hyzTRawstfHWoc2dumI5lis-8JH-5bCjvlY" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">9</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/sDV0FJ4a#TUZCz4BiqXWxs1tkIveSLyX1jaqcX4w4T8Hgaxtijo0" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">10</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/VHsEEAJY#Ik1adxC4fgflKdh1n26KlC4dwK1NczOuTvO_UpHxs38" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Streamtape</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">11</td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://streamtape.com/v/p19dQjV4LPHWm3/" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+              <tr class="table-row border-t border-gray-200">
+                <td class="py-4 px-6">Mega</td>
+                <td class="py-4 px-6 hidden md:table-cell">Subtitulos Español</td>
+                <td class="py-4 px-6">12 <span class="text-xs bg-red-500 text-white px-2 py-1 rounded-full ml-1">Final</span></td>
+                <td class="py-4 px-6 text-center">
+                  <a href="https://mega.nz/file/NCk1iCrC#DjJl6cUcHzCvbuh-7ksARtC0mXr_F6DdqS6RUtR2Yk0" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-lg font-medium transition-transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descargar
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Información adicional -->
+    <section class="mt-16 bg-white p-8 rounded-xl shadow-lg">
+      <h2 class="text-2xl font-bold mb-6">Sobre Ranma 1/2</h2>
+      
+      <div class="space-y-6 text-gray-700">
+        <p>Ranma 1/2 es una serie de anime basada en el manga de Rumiko Takahashi. La historia sigue a Ranma Saotome, un joven practicante de artes marciales que tiene una peculiar maldición: se convierte en chica cuando es salpicado con agua fría, y vuelve a su forma masculina con agua caliente.</p>
+        
+        <p>Ranma está comprometido con Akane Tendo, la menor de tres hermanas, en un acuerdo entre sus padres. A lo largo de la serie, se desarrolla su complicada relación mientras lidian con múltiples pretendientes, rivales de artes marciales y situaciones cómicas derivadas de la maldición de Ranma.</p>
+        
+        <p>Esta remasterización de 2024 trae la querida serie de los 90 con una calidad visual mejorada, conservando todo el encanto y humor del original pero con una resolución y claridad adaptadas a los estándares modernos.</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="bg-gray-800 text-white py-10 mt-20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h2 class="text-2xl font-bold">Ranma 1/2</h2>
+          <p class="text-gray-400 mt-2">Remasterización 2024</p>
+        </div>
+        
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-primary transition-colors">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="hover:text-primary transition-colors">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="#" class="hover:text-primary transition-colors">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="hover:text-primary transition-colors">
+            <i class="fab fa-discord text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400 text-center">
+        <p>Esta página es solo para fines educativos. Todos los derechos de Ranma 1/2 pertenecen a sus respectivos propietarios.</p>
+        <p class="mt-2">&copy; 2024 - Sitio no oficial de Ranma 1/2</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Oculta todos los capítulos al inicio
@@ -298,22 +537,84 @@ thead th.active {
       iframes.forEach(iframe => iframe.style.display = 'none');
     }
 
+    // Actualizar estado de botones
+    function actualizarBotones(id) {
+      // Remover clase active de todos los botones
+      document.querySelectorAll('.episode-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Añadir clase active al botón seleccionado
+      document.querySelectorAll('.episode-button')[id-1].classList.add('active');
+      
+      // Actualizar título del episodio
+      document.getElementById('current-episode-title').textContent = `Episodio ${id}`;
+      
+      // Actualizar estado de botones de navegación
+      document.getElementById('prev-episode').disabled = id === 1;
+      document.getElementById('next-episode').disabled = id === 12;
+      
+      // Configurar funciones para botones de navegación
+      if (id > 1) {
+        document.getElementById('prev-episode').onclick = function() {
+          cambiarEpisodio(id - 1);
+        };
+        document.getElementById('prev-episode').classList.remove('disabled');
+      } else {
+        document.getElementById('prev-episode').classList.add('disabled');
+      }
+      
+      if (id < 12) {
+        document.getElementById('next-episode').onclick = function() {
+          cambiarEpisodio(id + 1);
+        };
+        document.getElementById('next-episode').classList.remove('disabled');
+      } else {
+        document.getElementById('next-episode').classList.add('disabled');
+      }
+    }
+
     // Muestra el capítulo seleccionado
     function mostrarCapitulo(id) {
       ocultarCapitulos(); // Primero oculta todos los capítulos
       document.getElementById(id).style.display = 'block'; // Muestra el seleccionado
+      
+      // Extrae el número del capítulo del id
+      const capNum = parseInt(id.replace('capitulo', ''));
+      actualizarBotones(capNum);
+      
+      // Scroll al reproductor
+      document.querySelector('.video-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Cambiar episodio por número
+    function cambiarEpisodio(num) {
+      mostrarCapitulo(`capitulo${num}`);
     }
 
     // Mostrar el primer capítulo al cargar la página
-    mostrarCapitulo('capitulo1');
+    document.addEventListener('DOMContentLoaded', function() {
+      mostrarCapitulo('capitulo1');
+      actualizarBotones(1);
+    });
 
-     // Alternar la visibilidad de la lista de descarga
-     function toggleDownloadList() {
+    // Alternar la visibilidad de la lista de descarga
+    function toggleDownloadList() {
       const downloadList = document.getElementById('downloadList');
-      downloadList.style.display = (downloadList.style.display === 'none' || downloadList.style.display === '') 
-        ? 'block' : 'none';
+      if (downloadList.classList.contains('hidden')) {
+        downloadList.classList.remove('hidden');
+        setTimeout(() => {
+          downloadList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      } else {
+        downloadList.classList.add('hidden');
+      }
+    }
+    
+    // Detectar tema del sistema
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark-mode');
     }
   </script>
-
 </body>
 </html>
